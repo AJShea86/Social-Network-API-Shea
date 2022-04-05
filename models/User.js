@@ -29,7 +29,8 @@ const userSchema = new Schema(//does this need to be mongoose.Schema()?
   },
   {
     toJSON: {
-      virtuals: true, //taken from lesson 21
+      virtuals: true,//taken from lesson 21
+      getters: true 
     },
     id: false,
   }
@@ -41,4 +42,4 @@ userSchema.virtual("friendCount").get(function () {
 
 const User = model("User", userSchema);
 
-model.exports = User;
+module.exports = User;
