@@ -11,6 +11,7 @@ const thoughtSchema = new Schema( //does this need to be mongoose.schema()?
     createdAt: {
       type: Date,
       default: Date.now,
+
       // need a getter method to format the timestamp on query
     },
     userName: [
@@ -19,6 +20,10 @@ const thoughtSchema = new Schema( //does this need to be mongoose.schema()?
         required: true,
       },
     ],
+    formatDate(){
+      console.log(this.createdAt)
+    },
+  
     reactions: [reactionSchema],
     // Array of nested documents created with the reactionSchema
   },
@@ -27,7 +32,7 @@ const thoughtSchema = new Schema( //does this need to be mongoose.schema()?
       virtuals: true, //taken from lesson 21
     },
     id: false,
-  }
+  },
 );
 
 thoughtSchema.virtual("reactionCount").get(function () {
