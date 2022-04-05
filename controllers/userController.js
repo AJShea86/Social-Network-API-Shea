@@ -1,11 +1,11 @@
-const { User, Thought } = require('../models');
+const { User, Thought } = require('../models');//does thought need to be here?
 
 module.exports = {
 
 getUsers()
 
 
-getUserById()
+getSingleUserById()
 
 
 createNewUser()
@@ -18,3 +18,4 @@ deleteUserById()
 
 
 }
+
