@@ -16,15 +16,12 @@ const thoughtSchema = new Schema( //does this need to be mongoose.schema()?
     },
     userName: [
       {
-        type: "string",
+        type: String,
         required: true,
       },
     ],
-    formatDate(){
-      console.log(this.createdAt)
-    },
   
-    reactions: [reactionSchema],
+    // reactions: [reactionSchema],
     // Array of nested documents created with the reactionSchema
   },
   {
