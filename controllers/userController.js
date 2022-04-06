@@ -30,7 +30,7 @@ module.exports = {
       .then((user) =>
         !user
           ? res.status(404).json({ message: 'No user with that ID' })
-          : User.deleteMany({ _id: { $in: user.students } })//not sure what needs to replace students
+          : User.deleteMany({ _id: { $in: user } })//not sure what needs to replace students
       )
       .then(() => res.json({ message: 'User deleted!' }))
       .catch((err) => res.status(500).json(err));
