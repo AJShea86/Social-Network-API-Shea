@@ -8,7 +8,7 @@ const reactionSchema = new Schema(
     {
       reactionID: {
         type: Schema.Types.ObjectId,
-        default: {}, //Default value is set to a new ObjectId
+        default: () => new Types.ObjectId()
       },
       reactionBody: {
         type: String,
