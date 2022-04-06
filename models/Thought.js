@@ -11,8 +11,8 @@ const thoughtSchema = new Schema( //does this need to be mongoose.schema()?
     createdAt: {
       type: Date,
       default: Date.now,
+      getters: true,
 
-      // need a getter method to format the timestamp on query
     },
     userName: [
       {
