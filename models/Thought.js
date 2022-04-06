@@ -2,7 +2,7 @@ const { Schema, model } = require("mongoose"); //taken from lesson 21
 
 const reactionSchema = require('./Reaction');
 
-const thoughtSchema = new Schema( //does this need to be mongoose.schema()?
+const thoughtSchema = new Schema( 
   {
     thoughtText: {
       type: String,
@@ -39,4 +39,4 @@ thoughtSchema.virtual("reactionCount").get(function () {
 
 const Thought = model("Thought", thoughtSchema);
 
-model.exports = Thought;
+module.exports = Thought;
