@@ -1,5 +1,7 @@
 const { Schema, model } = require("mongoose"); //taken from lesson 21
 
+const reactionSchema = require('./Reaction');
+
 const thoughtSchema = new Schema( //does this need to be mongoose.schema()?
   {
     thoughtText: {
@@ -11,8 +13,7 @@ const thoughtSchema = new Schema( //does this need to be mongoose.schema()?
     createdAt: {
       type: Date,
       default: Date.now,
-      getters: true,
-
+      getters: true
     },
     userName: [
       {
@@ -21,7 +22,7 @@ const thoughtSchema = new Schema( //does this need to be mongoose.schema()?
       },
     ],
   
-    // reactions: [reactionSchema],
+    reactions: [reactionSchema],
     // Array of nested documents created with the reactionSchema
   },
   {
@@ -39,33 +40,3 @@ thoughtSchema.virtual("reactionCount").get(function () {
 const Thought = model("Thought", thoughtSchema);
 
 model.exports = Thought;
-
-const reactionSchema = new Schema(
-  {
-    reactionID: {
-      type: Schema.Types.ObjectId,
-      default: {}, //Default value is set to a new ObjectId
-    },
-    reactionBody: {
-      type: String,
-      required: true,
-      maxlength: 280,
-    },
-    userName: {
-      type: String,
-      required: true,
-    },
-    createdAt: {
-      type: Date,
-      default: Date.now,
-      //Use a getter method to format the timestamp on query
-    },
-  },
-  {
-    toJSON: {
-      virtuals: true,
-      //getters?
-    },
-    id: false,
-  }
-);

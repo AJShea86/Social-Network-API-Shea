@@ -1,21 +1,21 @@
 const router = require('express').Router();
 
 
-// const {
-//     getThoughts,
-//     getSingleThoughtById,
-//     createNewThought,
-//     updateUserById,
-//     deleteUserById
-// } = require('../../controllers/userController.js');
+const {
+    getThoughts,
+    getSingleThoughtById,
+    createNewThought,
+    updateThoughtById,
+    deleteThoughtById
+} = require('../../controllers/thoughtController.js');
 
-// router.route('/').get(getUsers).post(createNewUser);
+router.route('/').get(getThoughts).post(createNewThought);
 
-// router
-//     .route('/:userId')
-//     .get(getSingleUserById)
-//     .put(updateUserById)
-//     .delete(deleteUserById)
+router
+    .route('/:thoughtId')
+    .get(getSingleThoughtById)
+    .put(updateThoughtById)
+    .delete(deleteThoughtById)
 
 
 
