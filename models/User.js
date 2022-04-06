@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose"); //taken from lesson 21
 
-const userSchema = new Schema(//does this need to be mongoose.Schema()?
+const userSchema = new Schema(
   {
     userName: {
       type: String,
@@ -30,7 +30,6 @@ const userSchema = new Schema(//does this need to be mongoose.Schema()?
   {
     toJSON: {
       virtuals: true,//taken from lesson 21
-      getters: true 
     },
     id: false,
   }

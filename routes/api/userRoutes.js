@@ -7,7 +7,7 @@ const {
     createNewUser,
     updateUserById,
     deleteUserById
-} = require('../../controllers/userController');
+} = require('../../controllers/userController.js');
 
 router.route('/').get(getUsers).post(createNewUser);
 
