@@ -70,7 +70,7 @@ module.exports = {
     console.log(params.thoughtId, params.reactionId);
     Thought.findOneAndUpdate(
       { _id: params.thoughtId },
-      { $pull: { reactions: { reactionId: params.reactionId } } },
+      { $pull: { reactions: { _id: params.reactionId } } },
       { runValidators: true, new: true }
     )
       .then((reaction) => res.json(reaction))
