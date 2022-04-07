@@ -50,10 +50,11 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
-  addFriend({ params }, res) {
+  addFriend({ params, body }, res) {
+    console.log(params, body)
     User.findOneAndUpdate(
       { _id: params.id },
-      { $addToSet: { friends: params.friendId } },
+      { $addToSet: { friends: body } },
       { runValidators: true }
     )
       .then((friend) => {
