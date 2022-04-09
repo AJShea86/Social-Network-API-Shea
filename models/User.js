@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose"); //taken from lesson 21
+const { Schema, model, Types } = require("mongoose"); //taken from lesson 21
 
 const userSchema = new Schema(
   {

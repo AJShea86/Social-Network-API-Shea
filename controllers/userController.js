@@ -54,10 +54,11 @@ module.exports = {
     console.log(params, body)
     User.findOneAndUpdate(
       { _id: params.id },
-      { $addToSet: { friends: body } },
+      { $addToSet: { friends: body._id } },
       { runValidators: true }
     )
       .then((friend) => {
+        console.log(friend)
         if (!friend) {
           res.status(404).json({ message: "No friends found with this id!" });
           return;
